@@ -27,7 +27,7 @@ const config = {
       id: 'cow',
       name: 'Cow',
       type: CST.ENTITIES.TYPES.ANIMAL,
-      progressTime: 30,
+      progressTime: 20,
       maxEnergy: 100,
       eat: 'corn',
       product: 'milk',

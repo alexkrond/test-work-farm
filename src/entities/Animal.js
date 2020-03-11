@@ -19,6 +19,8 @@ class Animal extends Phaser.GameObjects.Sprite {
 
     this.withProduct = false;
 
+    this.progressTime = this.entity.progressTime;
+
     this.progressBar = this.scene.add.existing(new ProgressBar({
       scene,
       x: this.x - this.displayWidth / this.scale / 2,
@@ -42,7 +44,9 @@ class Animal extends Phaser.GameObjects.Sprite {
 
   update(deltaTime) {
     this.energy = this.energy > 0 ? this.energy - deltaTime : 0;
-    this.progress = this.progress + deltaTime * 10 > 100 ? 100 : this.progress + deltaTime * 10;
+    this.progress = this.progress + deltaTime * (100 / this.progressTime) > 100 ?
+        100 :
+        this.progress + deltaTime * (100 / this.progressTime);
 
     if (this.energy === 0 && this.progress !== 100) {
       this.progress = 0;

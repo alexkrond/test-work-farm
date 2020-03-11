@@ -11,10 +11,13 @@ class Plant extends Phaser.GameObjects.Sprite {
     this.entity = entity;
 
     this.progress = 0;
+    this.progressTime = this.entity.progressTime;
   }
 
   update(deltaTime) {
-    this.progress = this.progress + deltaTime * 10 > 100 ? 100 : this.progress + deltaTime * 10;
+    this.progress = this.progress + deltaTime * (100 / this.progressTime) > 100 ?
+        100 :
+        this.progress + deltaTime * (100 / this.progressTime);
   }
 
   toBarn() {
