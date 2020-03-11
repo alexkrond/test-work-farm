@@ -15,6 +15,8 @@ class Animal extends Phaser.GameObjects.Sprite {
     this.setScale(this.scale);
 
     this.energy = 0;
+    this.maxEnergy = this.entity.maxEnergy;
+    this.energyPerSec = this.entity.energyPerSec;
     this.progress = 0;
 
     this.withProduct = false;
@@ -34,7 +36,7 @@ class Animal extends Phaser.GameObjects.Sprite {
       this.scene.barn.take(foodId, 1);
 
       this.energy += food.energy;
-      this.energy = this.energy > 100 ? 100 : this.energy;
+      this.energy = this.energy > this.maxEnergy ? this.maxEnergy : this.energy;
 
       this.destroyPopup();
       this.showPopup();
@@ -43,7 +45,7 @@ class Animal extends Phaser.GameObjects.Sprite {
   }
 
   update(deltaTime) {
-    this.energy = this.energy > 0 ? this.energy - deltaTime : 0;
+    this.energy = this.energy > 0 ? this.energy - deltaTime * this.energyPerSec : 0;
     this.progress = this.progress + deltaTime * (100 / this.progressTime) > 100 ?
         100 :
         this.progress + deltaTime * (100 / this.progressTime);
@@ -56,7 +58,7 @@ class Animal extends Phaser.GameObjects.Sprite {
       this.withProduct = true;
     }
 
-    this.progressBar.updateProgress(this.energy / 100);
+    this.progressBar.updateProgress(this.energy / this.maxEnergy);
   }
 
   destroy(fromScene) {

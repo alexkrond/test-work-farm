@@ -13,7 +13,8 @@ const config = {
       name: 'Chicken',
       type: CST.ENTITIES.TYPES.ANIMAL,
       progressTime: 10,
-      maxEnergy: 20,
+      maxEnergy: 30,
+      energyPerSec: 1,
       eat: 'corn',
       product: 'egg',
       price: {
@@ -28,7 +29,8 @@ const config = {
       name: 'Cow',
       type: CST.ENTITIES.TYPES.ANIMAL,
       progressTime: 20,
-      maxEnergy: 100,
+      maxEnergy: 90,
+      energyPerSec: 1.5,
       eat: 'corn',
       product: 'milk',
       price: {
@@ -55,7 +57,7 @@ const config = {
       id: 'corn',
       name: 'Corn',
       type: CST.ENTITIES.TYPES.FOOD,
-      energy: 20,
+      energy: 30,
       price: {
         buy: 2,
         sell: 1,
