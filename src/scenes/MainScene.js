@@ -16,6 +16,8 @@ class MainScene extends Phaser.Scene {
   preload() {
     this.width = this.cameras.main.width;
     this.height = this.cameras.main.height;
+
+    this.sound.pauseOnBlur = false;
   }
 
 
