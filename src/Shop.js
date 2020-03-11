@@ -8,21 +8,10 @@ class Shop extends Phaser.GameObjects.Container {
   constructor({ scene, x, y }) {
     super(scene, x, y);
 
-    const textStyle = {
-      fontSize: '14px',
-      fontFamily: 'monospace',
-      color: '#000000',
-      backgroundColor: '#ffffff',
-      padding: {
-        x: 5,
-        y: 2
-      }
-    };
-
     for (let i = 0; i < entities.length; i++) {
       const line = new Phaser.GameObjects.Container(scene, 0, i * config.textLineHeight);
 
-      line.add(new Phaser.GameObjects.Text(scene, 0, 0, entities[i].name, textStyle));
+      line.add(new Phaser.GameObjects.Text(scene, 0, 0, entities[i].name, config.basicTextStyle));
 
 
       const sellBtn = new Button({
