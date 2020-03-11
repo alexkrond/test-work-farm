@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import config from "./config.js";
+import CST from "./cst.js";
 
 
 class Barn extends Phaser.GameObjects.Container {
@@ -36,6 +37,30 @@ class Barn extends Phaser.GameObjects.Container {
 
   getQuantity(entityId) {
     return this.storage[entityId].count;
+  }
+
+  getStorageList() {
+    const list = [];
+
+    for (let id in this.storage) {
+      if (this.storage.hasOwnProperty(id)) {
+        if (this.storage[id].count > 0) {
+          list.push(id);
+        }
+      }
+    }
+
+    return list;
+  }
+
+  getAnimalList() {
+    const fullList = this.getStorageList();
+    return fullList.filter(id => config.entities.find(entity => entity.id === id).type === CST.ENTITIES.TYPES.ANIMAL);
+  }
+
+  getPlantList() {
+    const fullList = this.getStorageList();
+    return fullList.filter(id => config.entities.find(entity => entity.id === id).type === CST.ENTITIES.TYPES.PLANT);
   }
 
   update(...args) {
