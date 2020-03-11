@@ -22,11 +22,11 @@ class Tile extends Phaser.GameObjects.Image {
   showPopup() {
     this.scene.tiles.children.iterate(tile => tile.popup && tile.destroyPopup());
 
-    // if (this.entity) {
-    //   this.popup = this.entity.popup;
-    //   this.entity.showPopup();
-    //   return;
-    // }
+    if (this.entity) {
+      this.entity.showPopup();
+      this.popup = this.entity.popup;
+      return;
+    }
 
     this.popup = new Phaser.GameObjects.Container(this.scene, this.x, this.y - this.displayHeight / 2);
 
@@ -80,6 +80,10 @@ class Tile extends Phaser.GameObjects.Image {
   destroyPopup() {
     this.popup.destroy();
     this.popup = null;
+
+    if (this.entity) {
+      this.entity.popup = null;
+    }
   }
 
   placeEntity(entity) {
@@ -87,7 +91,7 @@ class Tile extends Phaser.GameObjects.Image {
       this.scene.barn.take(entity.id, 1);
 
       const Entity = entity.class;
-      const e = new Entity({ scene: this.scene, x: this.x, y: this.y });
+      const e = new Entity({ scene: this.scene, x: this.x, y: this.y, tile: this, entity });
 
       this.entity = this.scene.add.existing(e);
     }
