@@ -32,11 +32,7 @@ class MainScene extends Phaser.Scene {
   update(time, delta) {
     const deltaTime = delta / 1000;
 
-    // this.tiles.children.iterate(tile => {
-    //   if (tile.entity && tile.entity.hasOwnProperty('update')) {
-    //     tile.entity.update(deltaTime);
-    //   }
-    // });
+    this.tiles.children.iterate(tile => tile.entity && tile.entity.update(deltaTime));
 
     this.wallet.update();
     this.barn.update();
