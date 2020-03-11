@@ -26,7 +26,7 @@ class Shop extends Phaser.GameObjects.Container {
       });
       const buyBtn = new Button({
         scene,
-        x: 160,
+        x: 170,
         y: 0,
         text: `BUY($${ entities[i].price.buy })`,
         style: {

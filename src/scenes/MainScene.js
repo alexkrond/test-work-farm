@@ -23,9 +23,9 @@ class MainScene extends Phaser.Scene {
     this.add.image(400, 300, 'farm'); // background
 
     this.wallet = new Wallet({ scene: this, money: config.startMoney });
-    this.barn = this.add.existing(new Barn({ scene: this, x: this.width - 250, y: 50 }));
-    this.shop = this.add.existing(new Shop({ scene: this, x: this.width - 250, y: 400 }));
-    this.tiles = Tile.addTileGrid({ scene: this, offsetX: 32, offsetY: 32 });
+    this.barn = this.add.existing(new Barn({ scene: this, x: this.width - 300, y: 96 }));
+    this.shop = this.add.existing(new Shop({ scene: this, x: this.width - 300, y: 450 }));
+    this.tiles = Tile.addTileGrid({ scene: this, offsetX: 64, offsetY: 96 });
   }
 
 
