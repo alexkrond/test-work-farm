@@ -8,24 +8,13 @@ class Barn extends Phaser.GameObjects.Container {
 
     this.storage = {};
 
-    const textStyle = {
-      fontSize: '14px',
-      fontFamily: 'monospace',
-      color: '#000000',
-      backgroundColor: '#ffffff',
-      padding: {
-        x: 5,
-        y: 2
-      }
-    };
-
     for (let i = 0; i < config.entities.length; i++) {
       this.storage[config.entities[i].id] = { count: 0 };
 
       const line = new Phaser.GameObjects.Container(scene, 0, i * config.textLineHeight);
-      line.add(new Phaser.GameObjects.Text(scene, 0, 0, config.entities[i].name, textStyle));
+      line.add(new Phaser.GameObjects.Text(scene, 0, 0, config.entities[i].name, config.basicTextStyle));
 
-      const countText = new Phaser.GameObjects.Text(scene, 160, 0, this.storage[config.entities[i].id].count, textStyle);
+      const countText = new Phaser.GameObjects.Text(scene, 160, 0, this.storage[config.entities[i].id].count, config.basicTextStyle);
       this.storage[config.entities[i].id].updateText = () => countText.setText(this.storage[config.entities[i].id].count);
 
       line.add(countText);
