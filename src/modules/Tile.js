@@ -114,12 +114,13 @@ class Tile extends Phaser.GameObjects.Image {
       y: 32 + offsetY
     });
 
-    const graphics = scene.add.graphics();
+    const moveQraphics = scene.add.graphics();
+    const clickQraphics = scene.add.graphics();
 
     tiles.children.iterate(tile => {
       tile.on('pointerover', event => {
-        graphics.lineStyle(2, 0xffff00);
-        graphics.strokeRect(
+        moveQraphics.lineStyle(2, 0xffff00);
+        moveQraphics.strokeRect(
             tile.x - tile.displayWidth / 2,
             tile.y - tile.displayHeight / 2,
             tile.displayWidth,
@@ -128,8 +129,19 @@ class Tile extends Phaser.GameObjects.Image {
       });
 
       tile.on('pointerout', event => {
-        graphics.clear();
+        moveQraphics.clear();
       });
+
+      tile.on('pointerup', () => {
+        clickQraphics.clear();
+        clickQraphics.lineStyle(2, 0xffff00);
+        clickQraphics.strokeRect(
+            tile.x - tile.displayWidth / 2,
+            tile.y - tile.displayHeight / 2,
+            tile.displayWidth,
+            tile.displayHeight
+        );
+      })
     });
 
     return tiles;
