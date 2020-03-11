@@ -1,4 +1,5 @@
 const path = require('path');
+const HTMLplugin = require('html-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -12,5 +13,10 @@ module.exports = {
   devServer: {
     port: 8080,
     contentBase: path.join(__dirname, 'public'),
-  }
+  },
+  plugins: [
+      new HTMLplugin({
+        template: './src/index.html',
+      })
+  ]
 };
