@@ -1,0 +1,23 @@
+{
+  "name": "test-work-farm",
+  "version": "1.0.0",
+  "description": "test work",
+  "private": true,
+  "scripts": {
+    "start": "npx serve ./public",
+    "build": "cross-env NODE_ENV=production npx webpack",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "build:dev": "cross-env NODE_ENV=development npx webpack"
+  },
+  "author": "Alex Kashko",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "phaser": "^3.22.0"
+  }
+}
