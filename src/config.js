@@ -14,7 +14,7 @@ const config = {
       type: CST.ENTITIES.TYPES.ANIMAL,
       progressTime: 10,
       maxEnergy: 20,
-      eat: ['corn'],
+      eat: 'corn',
       price: {
         buy: 10,
         sell: 5,
@@ -28,7 +28,7 @@ const config = {
       type: CST.ENTITIES.TYPES.ANIMAL,
       progressTime: 30,
       maxEnergy: 100,
-      eat: ['corn'],
+      eat: 'corn',
       price: {
         buy: 50,
         sell: 20,
