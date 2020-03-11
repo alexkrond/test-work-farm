@@ -15,8 +15,8 @@ class LoadingScene extends Phaser.Scene {
     };
 
     this.load.image('farm', 'assets/images/farm.jpg');
-    this.load.image('grass', 'assets/images/grass.png');
 
+    this.load.spritesheet('grass', 'assets/images/grass.png', frameSize);
     this.load.spritesheet('wheat', 'assets/images/wheat.png', frameSize);
     this.load.spritesheet('cow', 'assets/images/cow.png', frameSize);
     this.load.spritesheet('chicken', 'assets/images/chicken.png', frameSize);

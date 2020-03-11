@@ -1,9 +1,10 @@
 import Phaser from 'phaser';
 import Button from "../components/Button.js";
 import config from "../config.js";
+import CST from "../cst.js";
 
 
-class Tile extends Phaser.GameObjects.Image {
+class Tile extends Phaser.GameObjects.Sprite {
   constructor({ scene, x, y, frame }) {
     super(scene, x, y, 'grass', frame);
 
@@ -15,8 +16,19 @@ class Tile extends Phaser.GameObjects.Image {
       this.showPopup();
     });
 
+    this.scene.anims.create({
+      key: 'grass',
+      frames: [{ key: 'grass', frame: 0 }],
+      frameRate: 1
+    });
 
-    // TODO: switch sprite to land if entity type is PLANT
+    this.scene.anims.create({
+      key: 'land',
+      frames: [{ key: 'grass', frame: 1 }],
+      frameRate: 1
+    });
+
+    this.anims.play('grass');
   }
 
   showPopup() {
@@ -94,6 +106,12 @@ class Tile extends Phaser.GameObjects.Image {
       const e = new Entity({ scene: this.scene, x: this.x, y: this.y, tile: this, entity });
 
       this.entity = this.scene.add.existing(e);
+
+      if (entity.type === CST.ENTITIES.TYPES.PLANT) {
+        this.anims.play('land');
+      } else {
+        this.anims.play('grass');
+      }
     }
   }
 
