@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import config from "./config.js";
-import CST from "./cst.js";
+import config from "../config.js";
+import CST from "../cst.js";
 
 
 class Barn extends Phaser.GameObjects.Container {

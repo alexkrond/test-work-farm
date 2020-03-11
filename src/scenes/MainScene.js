@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
 import CST from "../cst.js";
-import Tile from "../Tile.js";
-import Shop from "../Shop.js";
+import Tile from "../modules/Tile.js";
+import Shop from "../modules/Shop.js";
 import config from "../config.js";
-import Barn from "../Barn.js";
-import Wallet from "../Wallet.js";
+import Barn from "../modules/Barn.js";
+import Wallet from "../modules/Wallet.js";
 
 
 class MainScene extends Phaser.Scene {

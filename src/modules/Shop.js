@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import config from "./config.js";
-import Button from "./components/Button.js";
+import config from "../config.js";
+import Button from "../components/Button.js";
 
 const entities = config.entities;
 
