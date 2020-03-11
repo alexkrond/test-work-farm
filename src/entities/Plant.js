@@ -10,8 +10,6 @@ class Plant extends Phaser.GameObjects.Sprite {
     this.tile = tile;
     this.entity = entity;
 
-    this.eatEnergy = 100;
-    this.status = 'p';
     this.progress = 0;
   }
 
