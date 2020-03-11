@@ -13,17 +13,40 @@ class Wheat extends Plant {
 
     options.scene.anims.create({
       key: 'medium',
-      frames: [{ key: 'wheat', frame: 1 }],
-      frameRate: 1
+      frames: this.scene.anims.generateFrameNumbers('wheat', { start: 1, end: 2 }),
+      frameRate: 1,
+      repeat: -1
     });
 
     options.scene.anims.create({
       key: 'done',
-      frames: [{ key: 'wheat', frame: 2 }],
-      frameRate: 1
+      frames: this.scene.anims.generateFrameNumbers('wheat', { start: 3, end: 4 }),
+      frameRate: 1,
+      repeat: -1
     });
 
     this.anims.play('begin');
+  }
+
+  update(deltaTime) {
+    super.update(deltaTime);
+
+    switch (true) {
+      case this.progress === 100:
+        if (this.anims.getCurrentKey() !== 'done') {
+          this.anims.play('done');
+        }
+        break;
+      case this.progress > 50:
+        if (this.anims.getCurrentKey() !== 'medium') {
+          this.anims.play('medium');
+        }
+        break;
+      default:
+        if (this.anims.getCurrentKey() !== 'begin') {
+          this.anims.play('begin');
+        }
+    }
   }
 }
 
