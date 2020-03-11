@@ -5,7 +5,7 @@ import Wheat from "./entities/Wheat.js";
 
 
 const config = {
-  startMoney: 1000,
+  startMoney: 100,
   entities: [
 
     {
