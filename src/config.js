@@ -1,4 +1,7 @@
 import CST from "./cst.js";
+import Cow from "./entities/Cow.js";
+import Chicken from "./entities/Chicken.js";
+import Wheat from "./entities/Wheat.js";
 
 
 const config = {
@@ -16,6 +19,7 @@ const config = {
         buy: 10,
         sell: 5,
       },
+      class: Chicken
     },
 
     {
@@ -29,6 +33,7 @@ const config = {
         buy: 50,
         sell: 20,
       },
+      class: Cow
     },
 
     {
@@ -40,6 +45,7 @@ const config = {
         buy: 5,
         sell: 1,
       },
+      class: Wheat
     },
 
     {
