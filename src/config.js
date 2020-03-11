@@ -15,6 +15,7 @@ const config = {
       progressTime: 10,
       maxEnergy: 20,
       eat: 'corn',
+      product: 'egg',
       price: {
         buy: 10,
         sell: 5,
@@ -29,6 +30,7 @@ const config = {
       progressTime: 30,
       maxEnergy: 100,
       eat: 'corn',
+      product: 'milk',
       price: {
         buy: 50,
         sell: 20,
@@ -41,6 +43,7 @@ const config = {
       name: 'Wheat',
       type: CST.ENTITIES.TYPES.PLANT,
       progressTime: 10,
+      product: 'corn',
       price: {
         buy: 5,
         sell: 1,
