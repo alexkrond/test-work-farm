@@ -5,8 +5,8 @@ import LoadingScene from "./scenes/LoadingScene.js";
 
 const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: 900,
+  height: 700,
   scene: [LoadingScene, MainScene],
   dom: {
     createContainer: true
