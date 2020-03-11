@@ -14,7 +14,7 @@ class Animal extends Phaser.GameObjects.Sprite {
     this.scale = .8;
     this.setScale(this.scale);
 
-    this.energy = 100;
+    this.energy = 0;
     this.progress = 0;
 
     this.withProduct = false;
