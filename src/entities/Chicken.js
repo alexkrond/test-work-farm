@@ -20,6 +20,21 @@ class Chicken extends Animal {
 
     this.anims.play('withoutEgg');
   }
+
+  update(deltaTime) {
+    super.update(deltaTime);
+
+    if (this.withProduct) {
+      if (this.anims.getCurrentKey() === 'withoutEgg') {
+        this.scene.sound.play('nice');
+        this.anims.play('withEgg');
+      }
+    } else {
+      if (this.anims.getCurrentKey() === 'withEgg') {
+        this.anims.play('withoutEgg');
+      }
+    }
+  }
 }
 
 export default Chicken;

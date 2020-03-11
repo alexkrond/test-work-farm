@@ -20,6 +20,20 @@ class Cow extends Animal {
 
     this.anims.play('withoutMilk');
   }
+
+  update(deltaTime) {
+    super.update(deltaTime);
+
+    if (this.withProduct) {
+      if (this.anims.getCurrentKey() === 'withoutMilk') {
+        this.anims.play('withMilk');
+      }
+    } else {
+      if (this.anims.getCurrentKey() === 'withMilk') {
+        this.anims.play('withoutMilk');
+      }
+    }
+  }
 }
 
 export default Cow;

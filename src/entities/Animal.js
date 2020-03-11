@@ -17,6 +17,8 @@ class Animal extends Phaser.GameObjects.Sprite {
     this.energy = 100;
     this.progress = 0;
 
+    this.withProduct = false;
+
     this.progressBar = this.scene.add.existing(new ProgressBar({
       scene,
       x: this.x - this.displayWidth / this.scale / 2,
@@ -46,6 +48,10 @@ class Animal extends Phaser.GameObjects.Sprite {
       this.progress = 0;
     }
 
+    if (this.progress === 100) {
+      this.withProduct = true;
+    }
+
     this.progressBar.updateProgress(this.energy / 100);
   }
 
@@ -64,6 +70,7 @@ class Animal extends Phaser.GameObjects.Sprite {
   collectProduct() {
     if (this.progress === 100) {
       this.progress = 0;
+      this.withProduct = false;
       this.scene.barn.put(this.entity.product, 1);
 
       this.destroyPopup();
