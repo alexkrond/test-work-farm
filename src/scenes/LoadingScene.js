@@ -22,6 +22,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.spritesheet('chicken', 'assets/images/chicken.png', frameSize);
 
     this.load.audio('nice', 'assets/sounds/nice.mp3');
+    this.load.audio('water', 'assets/sounds/water.mp3');
 
 
     this.width = this.cameras.main.width;

@@ -26,6 +26,7 @@ class Cow extends Animal {
 
     if (this.withProduct) {
       if (this.anims.getCurrentKey() === 'withoutMilk') {
+        this.scene.sound.play('water');
         this.anims.play('withMilk');
       }
     } else {
