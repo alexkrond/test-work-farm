@@ -32,6 +32,10 @@ class Animal extends Phaser.GameObjects.Sprite {
 
       this.energy += food.energy;
       this.energy = this.energy > 100 ? 100 : this.energy;
+
+      this.destroyPopup();
+      this.showPopup();
+      this.tile.popup = this.popup;
     }
   }
 
@@ -58,6 +62,10 @@ class Animal extends Phaser.GameObjects.Sprite {
     if (this.progress === 100) {
       this.progress = 0;
       this.scene.barn.put(this.entity.product, 1);
+
+      this.destroyPopup();
+      this.showPopup();
+      this.tile.popup = this.popup;
     }
   }
 
